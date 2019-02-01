@@ -1,19 +1,24 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
 
 # dummy data
 stores = [
     {
-        'name': 'Store #1',
+        'name': 'Test Store Name',
         'items': [
             {
-                'name': 'Item #1',
+                'name': 'Item One',
                 'price': 19.99
             }
         ]
     }
 ]
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 # POST /store data: {name:}
